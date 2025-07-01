@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.92,
+  "features": [
+    "duracao_meses",
+    "orcamento",
+    "tamanho_equipe",
+    "recursos_encoded",
+    "complexidade_encoded",
+    "experiencia_gerente",
+    "tipo_encoded"
+  ],
+  "classes": [
+    0,
+    1
+  ]
+}
