@@ -567,14 +567,12 @@ Este projeto demonstra uma **solução completa e profissional** para previsão 
 
 ---
 
-**💡 Esta solução não é apenas um teste técnico - é uma ferramenta real que pode transformar como organizações gerenciam projetos e minimizam riscos.**
+**💡 Esta solução  é uma ferramenta real que pode transformar como organizações gerenciam projetos e minimizam riscos.**
 
 **🎯 Sistema pronto para demonstração profissional e uso em ambiente real!**
 
 **Para executar:** `./run_project.sh` ou siga as instruções detalhadas acima.
 
 ---
-
-*Desenvolvido com foco em excelência técnica, inovação e aplicabilidade real.*
 
 
