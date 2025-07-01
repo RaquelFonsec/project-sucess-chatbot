@@ -1,12 +1,5 @@
 
 
-
-# 🤖 Chatbot de Previsão de Sucesso de Projetos
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)](https://fastapi.tiangolo.com)
-[![Accuracy](https://img.shields.io/badge/Accuracy-92%25-brightgreen)](/)
-
 # 🤖 Chatbot de Previsão de Sucesso de Projetos
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
