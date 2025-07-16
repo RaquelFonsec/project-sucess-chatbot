@@ -203,15 +203,15 @@ curl -X POST "http://localhost:8000/analyze-with-llm" \
 
 ### Exemplo de Interação
 ```
-<img width="1476" height="757" alt="image" src="https://github.com/user-attachments/assets/a712a830-80be-4d4e-bf85-0cb7ee38b982" />
+## 💬 Exemplo de Interação
 
-## 📊 Demonstração de Resultados Reais
+![Chatbot em Ação](https://github.com/user-attachments/assets/a712a830-80be-4d4e-bf85-0cb7ee38b982)
 
-<img width="1389" height="758" alt="image" src="https://github.com/user-attachments/assets/24b2c261-9d35-4730-839e-385cc2d939b2" />
+## 📊 Demonstração de Resultados
 
+![Análise de Projeto](https://github.com/user-attachments/assets/24b2c261-9d35-4730-839e-385cc2d939b2)
 
-
-<img width="1422" height="758" alt="image" src="https://github.com/user-attachments/assets/f4266d81-a3eb-4c67-b2dd-d7a7d6b09fe3" />
+![Resultados Híbridos](https://github.com/user-attachments/assets/f4266d81-a3eb-4c67-b2dd-d7a7d6b09fe3)
 
 
 ## Diferenciais Únicos
