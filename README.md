@@ -63,8 +63,8 @@ Sistema híbrido que integra **Random Forest** para predições objetivas com **
 ### Instalação Automática
 ```bash
 # 1. Clonar projeto
-git clone <seu-repositorio>
-cd project-success-chatbot
+git clone https://github.com/RaquelFonsec/project-sucess-chatbot.git
+cd project-sucess-chatbot
 
 # 2. Configurar chave OpenAI
 echo "OPENAI_API_KEY=sua_chave_aqui" > .env
@@ -81,7 +81,6 @@ cd api && python app.py
 
 # Terminal 3: Chatbot inteligente
 cd chatbot && python llm_chatbot.py
-```
 
 ### ⚡ Verificação Rápida
 ```bash
