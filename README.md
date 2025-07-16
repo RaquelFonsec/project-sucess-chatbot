@@ -201,22 +201,15 @@ curl -X POST "http://localhost:8000/analyze-with-llm" \
 | 9 | Fernando Rocha | Coordenador | 20 projetos | 7 anos | 88% |
 | 10 | Camila Dias | Gerente de Projetos | 16 projetos | 5 anos | 72% |
 
-### Exemplo de Interação
-```
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/a712a830-80be-4d4e-bf85-0cb7ee38b982" alt="Chatbot em Ação" width="800"/>
-  <p><em>Interface conversacional intuitiva com coleta inteligente de dados</em></p>
-</div>
 
-📊 Demonstração de Resultados
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/24b2c261-9d35-4730-839e-385cc2d939b2" alt="Análise de Projeto" width="800"/>
-  <p><em>Análise detalhada com métricas de performance e recomendações</em></p>
-</div>
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/f4266d81-a3eb-4c67-b2dd-d7a7d6b09fe3" alt="Resultados Híbridos" width="800"/>
-  <p><em>Integração perfeita: Random Forest + GPT-4o-mini com insights contextuais</em></p>
-</div>
+## 💬 Exemplo de Interação
+![Chatbot em Ação](./images/chatbot-demo.png)
+
+## 📊 Demonstração de Resultados
+![Análise de Projeto](./images/analise-projeto.png)
+![Resultados Híbridos](./images/resultados-ml-llm.png)
+
+
 
 
 ## Diferenciais Únicos
