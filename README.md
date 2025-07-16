@@ -201,15 +201,12 @@ curl -X POST "http://localhost:8000/analyze-with-llm" \
 | 9 | Fernando Rocha | Coordenador | 20 projetos | 7 anos | 88% |
 | 10 | Camila Dias | Gerente de Projetos | 16 projetos | 5 anos | 72% |
 
-
 ## 💬 Exemplo de Interação
-![Chatbot em Ação](./images/chatbot-demo.png)
+![Chatbot em Ação](./images/chatbot-interacao.png)
 
 ## 📊 Demonstração de Resultados
 ![Análise de Projeto](./images/analise-projeto.png)
-![Resultados Híbridos](./images/resultados-ml-llm.png)
-
-
+![Resultados Híbridos](./images/resultados-hibridos.png)
 
 
 ## Diferenciais Únicos
