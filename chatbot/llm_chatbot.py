@@ -17,6 +17,7 @@ class LLMProjectChatbot:
         self.api_url = api_url
         self.current_user = None
         self.project_data = {}
+        self.questions_asked = 0  # Contador para evitar cumprimentos repetitivos
         
     def get_llm_response(self, user_message, context=""):
         """Usar GPT-4o-mini para respostas inteligentes"""
@@ -29,6 +30,8 @@ class LLMProjectChatbot:
         Seja conversacional, profissional e faça perguntas de forma natural.
         Quando coletar dados, explique brevemente por que cada informação é importante.
         Use emojis para tornar a conversa mais amigável.
+        
+        IMPORTANTE: Não repita cumprimentos como "Olá" se já foi estabelecido o contexto da conversa.
         """
         
         try:
@@ -98,13 +101,41 @@ class LLMProjectChatbot:
             print(f"❌ Erro ao carregar usuários: {e}")
             return False
     
+    def get_question_for_field(self, field, config):
+        """Gerar pergunta específica para cada campo sem cumprimentos repetitivos"""
+        
+        # Perguntas pré-definidas para evitar repetição de cumprimentos
+        predefined_questions = {
+            'duracao_meses': "⏱️ Quantos meses o projeto vai durar? Esta informação é crucial para planejar marcos e avaliar o cronograma.",
+            'orcamento': "💰 Qual o orçamento total do projeto em R$? O orçamento nos ajuda a avaliar a viabilidade e gerenciar recursos.",
+            'tamanho_equipe': "👥 Quantas pessoas vão trabalhar no projeto? O tamanho da equipe impacta diretamente na capacidade de entrega.",
+            'experiencia_gerente': "🎓 Quantos anos de experiência tem o gerente? A experiência é fundamental para a liderança e tomada de decisões.",
+            'recursos_disponiveis': "🛠️ Como você avalia os recursos disponíveis? Isso inclui pessoal, tecnologia e ferramentas necessárias.",
+            'complexidade': "🎯 Qual a complexidade técnica do projeto? Complexidade maior pode exigir mais tempo e especialização.",
+            'tipo_projeto': "🏗️ Qual o tipo de projeto? Diferentes tipos têm características e desafios específicos."
+        }
+        
+        # Usar pergunta pré-definida se disponível
+        if field in predefined_questions:
+            return predefined_questions[field]
+        
+        # Fallback para geração dinâmica (sem cumprimentos se já passaram da primeira pergunta)
+        if self.questions_asked > 0:
+            question_prompt = f"Faça uma pergunta direta sobre: {config['question']}. Explique brevemente por que é importante. NÃO use cumprimentos como 'Olá' ou 'Oi'."
+        else:
+            question_prompt = f"Faça uma pergunta natural sobre: {config['question']}. Explique brevemente por que essa informação é importante para análise."
+        
+        context = f"Coletando {field} para análise de projeto. Usuário: {self.current_user['nome']}. Pergunta número: {self.questions_asked + 1}"
+        
+        return self.get_llm_response(question_prompt, context)
+    
     def collect_project_data(self):
         """Coleta dados do projeto com conversação natural"""
         print("\n" + "="*50)
         print("📋 COLETA DE DADOS DO PROJETO")
         print("="*50)
         
-        # Mapeamento de campos - CORRIGIDO
+        # Mapeamento de campos
         field_map = {
             'duracao_meses': {'question': 'Quantos meses o projeto vai durar?', 'type': 'int'},
             'orcamento': {'question': 'Qual o orçamento total do projeto em R$?', 'type': 'float'},
@@ -115,13 +146,14 @@ class LLMProjectChatbot:
             'tipo_projeto': {'question': 'Tipo do projeto?', 'type': 'choice', 'options': ['TI', 'Construção', 'Marketing', 'P&D']}
         }
         
+        self.questions_asked = 0
+        
         for field, config in field_map.items():
             # Gerar pergunta inteligente
-            context = f"Coletando {field} para análise de projeto. Usuário: {self.current_user['nome']}"
-            question_prompt = f"Faça uma pergunta natural sobre: {config['question']}. Explique brevemente por que essa informação é importante para análise."
-            
-            question = self.get_llm_response(question_prompt, context)
+            question = self.get_question_for_field(field, config)
             print(f"\n🤖: {question}")
+            
+            self.questions_asked += 1
             
             # Coletar resposta
             while True:
@@ -135,15 +167,17 @@ class LLMProjectChatbot:
                     if config['type'] == 'int':
                         value = int(user_input)
                         self.project_data[field] = value
+                        print(f"✅ Registrado: {value}")
                         break
                     elif config['type'] == 'float':
                         # Limpar formatação brasileira
                         clean_input = user_input.replace('R$', '').replace('.', '').replace(',', '.')
                         value = float(clean_input)
                         self.project_data[field] = value
+                        print(f"✅ Registrado: R$ {value:,.2f}")
                         break
                     elif config['type'] == 'choice':
-                        # CORREÇÃO: Comparação case-insensitive
+                        # Comparação case-insensitive
                         user_choice = user_input.strip().lower()
                         options_lower = [opt.lower() for opt in config['options']]
                         
@@ -168,8 +202,8 @@ class LLMProjectChatbot:
         print("📋 RESUMO DO PROJETO")
         print("="*50)
         
-        summary_context = f"Dados coletados: {self.project_data}"
-        summary_prompt = "Faça um resumo amigável dos dados do projeto que coletamos. Seja positivo e mencione se algo chama atenção."
+        summary_context = f"Dados coletados: {self.project_data}. Usuário: {self.current_user['nome']}"
+        summary_prompt = "Faça um resumo amigável e conciso dos dados do projeto que coletamos. Seja positivo e mencione se algo chama atenção. NÃO use cumprimentos repetitivos."
         
         summary = self.get_llm_response(summary_prompt, summary_context)
         print(f"\n🤖: {summary}")
@@ -278,6 +312,9 @@ class LLMProjectChatbot:
                 print("🚀 NOVA ANÁLISE DE PROJETO")
                 print("="*60)
                 
+                # Resetar contador de perguntas para novo projeto
+                self.questions_asked = 0
+                
                 if not self.collect_project_data():
                     break
                 
@@ -306,7 +343,7 @@ class LLMProjectChatbot:
         except KeyboardInterrupt:
             print(f"\n\n👋 Até logo!")
         except Exception as e:
-            print(f"\n❌ Erro: {e}")
+            print(f"❌ Erro: {e}")
 
 if __name__ == "__main__":
     chatbot = LLMProjectChatbot()
