@@ -203,74 +203,20 @@ curl -X POST "http://localhost:8000/analyze-with-llm" \
 
 ### Exemplo de Interação
 ```
-🤖: Olá, Maria! 😊 Com 3 anos de experiência como Analista de Projetos, 
-    você deve ter acumulado bastante conhecimento valioso. 
-    Vou te ajudar a avaliar o sucesso do seu projeto usando IA!
-
-🤖: Quantos meses você estima que o projeto vai durar? 
-    Essa informação é importante porque a duração ajuda a planejar 
-    recursos e identificar riscos potenciais.
-
-👤: 8
-
-🤖: Perfeito! Agora, qual o orçamento total em R$? 
-    O orçamento nos permite avaliar a viabilidade financeira 
-    e identificar possíveis limitações.
-
-👤: 150000
-
-[... coleta conversacional continua ...]
-
-📊 RESULTADO DA ANÁLISE INTELIGENTE
-🎉 STATUS: SUCESSO ✅
-📈 Probabilidade de Sucesso: 68.2%
-📊 [█████████████░░░░░░░] 68.2%
-
-🤖 ANÁLISE ESPECIALISTA:
-### Principais Fatores de Sucesso:
-- Experiência adequada do gerente (5 anos)
-- Complexidade controlada (Baixa)
-- Equipe bem dimensionada (10 pessoas)
-
-### Recomendações Específicas:
-1. Considere aumentar recursos disponíveis
-2. Monitore orçamento de perto devido à limitação
-3. Aproveite a baixa complexidade para acelerar entregas
-```
+<img width="1476" height="757" alt="image" src="https://github.com/user-attachments/assets/a712a830-80be-4d4e-bf85-0cb7ee38b982" />
 
 ## 📊 Demonstração de Resultados Reais
 
-### Caso 1: Projeto de SUCESSO (89%)
-**👤 Usuário**: Pedro Costa (Coordenador experiente)  
-**📋 Entrada**:
-- Duração: 12 meses
-- Orçamento: R$ 1.000.000
-- Equipe: 8 pessoas
-- Recursos: Alto
-- Complexidade: Média
-- Gerente: 10 anos experiência
-- Tipo: TI
+<img width="1389" height="758" alt="image" src="https://github.com/user-attachments/assets/24b2c261-9d35-4730-839e-385cc2d939b2" />
 
-**📊 Resultado ML**: 89% probabilidade de sucesso  
-**🤖 Análise LLM**: "Excelente configuração! Recursos abundantes, experiência sólida e complexidade controlada. Recomendo manter cronograma atual e focar em comunicação da equipe."
 
-### Caso 2: Projeto de RISCO (23%)
-**👤 Usuário**: Carlos Lima (Analista júnior)  
-**📋 Entrada**:
-- Duração: 24 meses
-- Orçamento: R$ 150.000
-- Equipe: 25 pessoas
-- Recursos: Baixo
-- Complexidade: Alta
-- Gerente: 2 anos experiência
-- Tipo: P&D
 
-**📊 Resultado ML**: 23% probabilidade de sucesso  
-**🤖 Análise LLM**: "Projeto de alto risco. Recomendo: 1) Reduzir equipe para 8-12 pessoas, 2) Aumentar orçamento ou reduzir escopo, 3) Considerar mentoria para o gerente, 4) Dividir em fases menores."
+<img width="1422" height="758" alt="image" src="https://github.com/user-attachments/assets/f4266d81-a3eb-4c67-b2dd-d7a7d6b09fe3" />
 
-## 🔥 Diferenciais Únicos
 
-### 🎯 Sistema Híbrido Pioneiro
+## Diferenciais Únicos
+
+### 🎯 Sistema Híbrido 
 - **Não é só ML**: Combina com análise contextual inteligente
 - **Não é só LLM**: Tem predições objetivas baseadas em dados
 - **Melhor dos dois mundos**: Precisão + conversação natural
@@ -569,44 +515,9 @@ cd chatbot && python llm_chatbot.py
 
 
 
-### 🌟 **Benefícios da Migração**
 
-#### **Escalabilidade**
-- **Suporte a 1000+ usuários** simultâneos
-- **Análise de milhares de projetos** por dia
-- **Crescimento horizontal** automático
-- **Performance consistente** mesmo com alta demanda
 
-#### **Confiabilidade**
-- **99.9% uptime** garantido
-- **Backup automático** com recovery point <1h
-- **Disaster recovery** em múltiplas regiões
-- **Monitoramento 24/7** proativo
 
-#### **Segurança**
-- **Criptografia end-to-end** de dados
-- **Auditoria completa** de todas as ações
-- **Compliance** com regulamentações
-- **Acesso baseado em roles** (RBAC)
-
-### 🚀 **Tecnologias de Produção**
-
-#### **Cloud Providers**
-- **AWS**: ECS, RDS, ElastiCache, CloudWatch
-- **Azure**: AKS, PostgreSQL, Redis, Monitor
-- **Google Cloud**: GKE, Cloud SQL, Memorystore
-
-#### **Observabilidade**
-- **Prometheus**: Coleta de métricas
-- **Grafana**: Dashboards e visualização
-- **ELK Stack**: Logs centralizados
-- **Jaeger**: Tracing distribuído
-
-#### **Segurança**
-- **HashiCorp Vault**: Gerenciamento de secrets
-- **Let's Encrypt**: Certificados SSL gratuitos
-- **OWASP ZAP**: Teste de segurança
-- **Snyk**: Análise de vulnerabilidades
 
 ---
 
